@@ -1,11 +1,11 @@
 Pmonline::Application.routes.draw do
-	resources :users
-	resources :sessions, :only => [ :new, :create, :destroy ]
+  resources :users
+  resources :sessions, :only => [ :new, :create, :destroy ]
   get "sessions/new"
 
-	match '/signup', :to => 'users#new'
-	match '/signin', :to => 'sessions#new'
-	match '/signout', :to => 'sessions#destroy'
+  match '/signup', :to => 'users#new'
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
 
   match '/blog', :to => 'pages#blog'
   match '/buy_things', :to => 'pages#buy_things'
@@ -15,12 +15,12 @@ Pmonline::Application.routes.draw do
   match '/mathpunx', :to => 'pages#mathpunx'
   match '/networks', :to => 'pages#networks'
 
-	# Boy, I wanted this to work...
+  # Boy, I wanted this to work...
 =begin
 static_pages = %w[about_the_author about_the_book blog buy_things contact get_involved home mathpunx_login networks]
-	static_pages.each do |pagename|
-		match '/#{ pagename }', :to => 'pages##{ pagename }'
-	end
+  static_pages.each do |pagename|
+    match '/#{ pagename }', :to => 'pages##{ pagename }'
+  end
 =end
 
   # The priority is based upon order of creation:
